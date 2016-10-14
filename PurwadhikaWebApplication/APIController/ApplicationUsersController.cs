@@ -9,14 +9,23 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using PurwadhikaWebApplication.Models;
+using PurwadhikaWebApplication.Repo;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
+//NOTE: Di UserViewModel perlu tambahin Email...
+//CONSIDERATION: Yang mau di get nanti application user atau UserViewModel? kalo UserViewModel ya perlu email biar bisa nge-put berdasarkan email.
+//              Kalo mau nampilin ApplicationUser, password kudu di hide banget
 namespace PurwadhikaWebApplication.APIController
 {
     public class ApplicationUsersController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private AuthRepository _repo = null;
+
 
         // GET: api/ApplicationUsers
+     //   [Authorize]
         public IQueryable<UserViewModel> GetApplicationUsers()
         {
             var list = db.Users.ToList().Select(e => new UserViewModel
@@ -39,16 +48,35 @@ namespace PurwadhikaWebApplication.APIController
             return Ok(applicationUser);
         }
 
+        [Authorize]
+        [Route("~/api/akun/me")]
+        [HttpGet]
+        // GET: api/ApplicationUsers/5
+        [ResponseType(typeof(ApplicationUser))]
+        public async Task<IHttpActionResult> Me()
+        {
+            AuthRepository myRepo = new AuthRepository();
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            
+            var email = principal.Claims.Where(e => e.Type == "sub").FirstOrDefault();
+            var me = await myRepo.FindMe(email.Value);
+            if (me == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(me);
+        }
         // PUT: api/ApplicationUsers/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutApplicationUser(string id, ApplicationUser applicationUser)
+        public IHttpActionResult PutApplicationUser(string email, ApplicationUser applicationUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != applicationUser.Id)
+            if (email != applicationUser.Email)
             {
                 return BadRequest();
             }
@@ -61,7 +89,7 @@ namespace PurwadhikaWebApplication.APIController
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ApplicationUserExists(id))
+                if (!ApplicationUserExists(email))
                 {
                     return NotFound();
                 }
@@ -76,32 +104,35 @@ namespace PurwadhikaWebApplication.APIController
 
         // POST: api/ApplicationUsers
         [ResponseType(typeof(ApplicationUser))]
-        public IHttpActionResult PostApplicationUser(ApplicationUser applicationUser)
+      //  [AllowAnonymous]
+        public async Task<IHttpActionResult> PostApplicationUser(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(applicationUser);
 
             try
             {
-                db.SaveChanges();
+                AuthRepository auth = new AuthRepository();
+                var result=await auth.RegisterUser(model);
+                return Ok(result);
             }
             catch (DbUpdateException)
             {
-                if (ApplicationUserExists(applicationUser.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                //if (ApplicationUserExists(applicationUser.Id))
+                //{
+                //    return Conflict();
+                //}
+                //else
+                //{
+                //    throw;
+                //}
+                throw;
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = applicationUser.Id }, applicationUser);
+            //return CreatedAtRoute("DefaultApi", new { id = applicationUser.Id }, applicationUser);
         }
 
         // DELETE: api/ApplicationUsers/5

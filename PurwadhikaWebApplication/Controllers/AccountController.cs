@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PurwadhikaWebApplication.Models;
+using PurwadhikaWebApplication.Repo;
 
 namespace PurwadhikaWebApplication.Controllers
 {
@@ -17,9 +18,11 @@ namespace PurwadhikaWebApplication.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        
 
         public AccountController()
         {
+           
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )

@@ -1,0 +1,31 @@
+﻿ADDED NEW CLASS:
+	-> AuthRepository.cs
+		- Isinya method buat login, get current user dan register //hiraukan registernya
+	-> SimpleAuthorizationServerProvider.cs
+	-> AccountController.cs //Ignore, buat test dan sampel saja, nanti akan dihapus
+	
+
+New Feature:
+	-> Web API login with Bearer Token System
+	-> Authorized GET
+	-> Get User Data
+
+File Modification:
+	-> Di startup.cs
+		+ penambahan di method Configuration
+		+ penambahan method ConfigureOAuth
+			-> isinya untuk bikin Token Endpoint path, setting token expire time
+			   dan generate Token
+		* ConfigureAuth jadi ConfigureOAuth
+
+	-> Di ApplicationUsersController.cs
+		+ Line 51, get user yang sedang login
+		+ Line 105, Register using POST ke ApplicationUsers dengan AuthRepository
+			-> Register tetep pake yang di controller, ini untuk test saja
+
+Not Yet Implemented:
+	-> Authorized Role GET
+
+Consideration:
+	-> Change "AccountPicture" Property name to "uri" for easier implementation in
+	   React-Native

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace PurwadhikaWebApplication.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+
     public class ApplicationUser : IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -65,13 +66,13 @@ namespace PurwadhikaWebApplication.Models
 
         public DbSet<AnnouncementMaster> AnnouncementMasters { get; set; }
 
-        public System.Data.Entity.DbSet<PurwadhikaWebApplication.Models.JobViewModel> JobViewModels { get; set; }
+        public DbSet<JobViewModel> JobViewModels { get; set; }
 
-        public System.Data.Entity.DbSet<PurwadhikaWebApplication.Models.MessageViewModel> MessageViewModels { get; set; }
+        public DbSet<MessageViewModel> MessageViewModels { get; set; }
 
 
 
-        //public System.Data.Entity.DbSet<PurwadhikaWebApplication.Models.ApplicationUser> ApplicationUsers { get; set; }
+       // public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
 
         //public System.Data.Entity.DbSet<PurwadhikaWebApplication.Models.ApplicationUser> ApplicationUsers { get; set; }
