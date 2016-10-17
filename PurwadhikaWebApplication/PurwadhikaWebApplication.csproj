@@ -367,6 +367,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CHANGELOGS\ChangeLog-Arga-v-1-0.txt" />
+    <Content Include="CHANGELOGS\ChangeLog-Arga-v-1-1.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />

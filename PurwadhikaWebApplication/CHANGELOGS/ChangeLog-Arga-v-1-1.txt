@@ -1,0 +1,20 @@
+﻿ADDED NEW METHOD:
+	-> AuthRepository.cs
+		+EditMe
+			*Digunakan buat update profile, pake 2 parameter yaitu ViewModel-nya dan current user
+			NB: Bantu gue buat bikin confirm password disini.
+		
+	->ApplicationUsers 
+		+EditMe
+			Eksekusinya
+
+ADDED NEW VIEWMODEL:
+	->AccountViewModel.cs
+		+EditViewModel
+			*ViewModel buat Update profile
+
+BUG:
+	-> Data gak presisten, kalo gak di isi, valuenya bakal ke update jd null(Belum di fix)
+	-> Password gak ke hash ulang(FIXED!)
+		
+	

@@ -33,6 +33,7 @@ namespace PurwadhikaWebApplication.Repo
                 Address = userModel.Address,
                 Batch = userModel.Batch,
                 AccountPicture = userModel.AccountPicture,
+                
 
             };
 
@@ -48,6 +49,29 @@ namespace PurwadhikaWebApplication.Repo
             return user;
         }
 
+        public async Task<IdentityResult> EditMe(EditViewModel myModel, ApplicationUser me)
+        {
+            //var editProfile = new ApplicationUser();
+
+            me.About = myModel.About;
+            me.AccountPicture = myModel.uri;
+            me.Address = myModel.Address;
+            me.Experience = myModel.Experience;
+            me.Skills = myModel.Skills;
+            //  me.PasswordHash = myModel.Password;
+            var newPassword = _userManager.PasswordHasher.HashPassword(myModel.Password);
+            me.PasswordHash = newPassword;
+
+            var updated = await _userManager.UpdateAsync(me);
+           
+            return updated;
+            
+        }
+
+        //public async Task<IdentityResult>ChangePassword(string email, string newPassword)
+        //{
+        //    //var store = await _userManager.hash
+        //}
         public async Task<ApplicationUser> FindMe(string email)
         {
             var me = await _userManager.FindByEmailAsync(email);

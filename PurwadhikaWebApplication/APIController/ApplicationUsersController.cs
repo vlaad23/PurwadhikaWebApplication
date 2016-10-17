@@ -67,6 +67,39 @@ namespace PurwadhikaWebApplication.APIController
 
             return Ok(me);
         }
+
+        [Authorize]
+        [Route("~/api/akun/me")]
+        [HttpPut]
+        public async Task<IHttpActionResult> EditMe(EditViewModel updateModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+           AuthRepository profileRepo = new AuthRepository();
+           ClaimsPrincipal myPrincipal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+
+            var getUName = myPrincipal.Claims.Where(e => e.Type == "sub").FirstOrDefault();
+            var myProfile = await profileRepo.FindMe(getUName.Value);
+                if(myProfile == null)
+                    {
+                        return NotFound();
+                    }
+
+            var update = await profileRepo.EditMe(updateModel, myProfile);
+                    
+            return Ok(update);
+        }
+        //[HttpPost]
+        //[ActionName("Edit")]
+        //public async Task<IHttpActionResult> EditProfile(EditViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = await Appli
+        //    }
+        //}
         // PUT: api/ApplicationUsers/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutApplicationUser(string email, ApplicationUser applicationUser)
