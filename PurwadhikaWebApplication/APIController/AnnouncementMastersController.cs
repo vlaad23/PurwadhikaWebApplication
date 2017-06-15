@@ -85,20 +85,28 @@ namespace PurwadhikaWebApplication.APIController
             return CreatedAtRoute("DefaultApi", new { id = announcementMaster.Id }, announcementMaster);
         }
 
-        // DELETE: api/AnnouncementMasters/5
+        // DELETE: api/AnnouncementMasters/5 <--- Deprecated
+ 
         [ResponseType(typeof(AnnouncementMaster))]
-        public IHttpActionResult DeleteAnnouncementMaster(int id)
+        [HttpPut]
+        [Route("~/api/announcementmasters/scheduler")]
+        public IHttpActionResult ScheduleDeleteAnnouncementMaster(AnnouncementMaster ann)
         {
-            AnnouncementMaster announcementMaster = db.AnnouncementMasters.Find(id);
-            if (announcementMaster == null)
+            var annMaster = db.AnnouncementMasters.ToList();
+            foreach (var announcement in annMaster)
             {
-                return NotFound();
+                announcement.DeleteIn = ann.DeleteIn;
+                announcement.ExpiredIn = announcement.DateTime.AddDays(announcement.DeleteIn);
+
+                db.Entry(announcement).State = EntityState.Modified;
             }
 
-            db.AnnouncementMasters.Remove(announcementMaster);
             db.SaveChanges();
+            //messageMaster.ExpiredIn = messageMaster.DateTime.AddDays(messageMaster.DeleteIn);
 
-            return Ok(announcementMaster);
+            //db.Entry(messageMaster).State = EntityState.Modified;
+
+            return Ok(new HttpResponseException(HttpStatusCode.OK));
         }
 
         protected override void Dispose(bool disposing)

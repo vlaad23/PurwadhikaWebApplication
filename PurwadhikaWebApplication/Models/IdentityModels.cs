@@ -5,6 +5,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace PurwadhikaWebApplication.Models
 {
@@ -26,13 +29,26 @@ namespace PurwadhikaWebApplication.Models
         public string Address { get; set; }
         public int Batch { get; set; }
         public bool AccountStatus { get; set; } = true;
-        public string AccountTranscript{ get; set; }
+        public string[] AccountTranscript { get; set; }
         public string AccountPicture { get; set; }
         public string InstanceName { get; set; }
         public string Industry { get; set; }
         public string About { get; set; }
         public string Skills { get; set; }
         public string Experience { get; set; }
+
+        public string Fullname
+        {
+            get { return Firstname + ' ' + Lastname; }
+            //set { }
+        }
+
+
+        public virtual ICollection<ApplicantsModel> ApplicantsModel { get; set; }
+        public virtual ICollection<TranscriptsModel> TranscriptsModel { get; set; }
+
+        //public int ApplicantsID { get; set; }
+        //public virtual ApplicantsViewModel Applicants { get; set; }
 
     }
 
@@ -56,9 +72,9 @@ namespace PurwadhikaWebApplication.Models
             Database.SetInitializer(new DbInitializer());
         }
 
-        DbSet<JobMaster> JobMaster;
-        DbSet<AnnouncementMaster> AnnouncementMaster;
-        DbSet<MessageMaster> MessageMaster;
+        //DbSet<JobMaster> JobMaster;
+        //DbSet<AnnouncementMaster> AnnouncementMaster;
+        //DbSet<MessageMaster> MessageMaster;
 
 
         public DbSet<JobMaster> JobMasters { get; set; }
@@ -66,13 +82,25 @@ namespace PurwadhikaWebApplication.Models
 
         public DbSet<AnnouncementMaster> AnnouncementMasters { get; set; }
 
-        public DbSet<JobViewModel> JobViewModels { get; set; }
+        public DbSet<ApplicantsModel> ApplicantsModels { get; set; }
+        public DbSet<EmployerViewModel> EmployerViewModels { get; set; }
 
-        public DbSet<MessageViewModel> MessageViewModels { get; set; }
+        public DbSet<TranscriptsModel> TranscriptsModels { get; set; }
+        public DbSet<CategoryMaster> CategoryMaster { get; set; }
+
+        //public System.Data.Entity.DbSet<PurwadhikaWebApplication.Models.ApplicationUser> ApplicationUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<PurwadhikaWebApplication.Models.EmployerViewModel> EmployerViewModels { get; set; }
 
 
 
-       // public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        //public DbSet<JobViewModel> JobViewModels { get; set; }
+
+        //public DbSet<MessageViewModel> MessageViewModels { get; set; }
+
+
+
+        // public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
 
         //public System.Data.Entity.DbSet<PurwadhikaWebApplication.Models.ApplicationUser> ApplicationUsers { get; set; }

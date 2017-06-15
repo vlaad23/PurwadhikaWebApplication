@@ -1,4 +1,6 @@
-﻿@model IEnumerable<PurwadhikaWebApplication.Models.JobViewModel>
+﻿@model IEnumerable<PurwadhikaWebApplication.Models.JobMaster>
+
+@*@model PurwadhikaWebApplication.Models.JobMaster*@
 
 @{
     ViewBag.Title = "Index";
@@ -9,23 +11,40 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-striped table-hover table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.JobName)
         </th>
-
         <th>
-            @Html.DisplayNameFor(model => model.Quota)
+            @Html.DisplayNameFor(model => model.AvailablePosition)
         </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-   
+
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
+            @Html.DisplayNameFor(model => model.DateTime)
         </th>
-        <th></th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentApplicant)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ApprovalStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+
+        <th>
+            Action
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -33,22 +52,34 @@
         <td>
             @Html.DisplayFor(modelItem => item.JobName)
         </td>
-
         <td>
-            @Html.DisplayFor(modelItem => item.Quota)
+            @Html.DisplayFor(modelItem => item.AvailablePosition)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
-   
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
+            @Html.DisplayFor(modelItem => item.DateTime)
         </td>
-        @*<td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentApplicant)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.ApprovalStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+        </td>
+        
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
+        </td>
     </tr>
 }
 

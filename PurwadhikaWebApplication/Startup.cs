@@ -8,13 +8,16 @@ using System.Web.Http;
 [assembly: OwinStartup(typeof(PurwadhikaWebApplication.Startup))]
 namespace PurwadhikaWebApplication
 {
+
     public partial class Startup
     {
+
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration config = new HttpConfiguration();
 
             ConfigureOAuth(app);
+            ConfigureAuth(app);
 
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
@@ -27,7 +30,7 @@ namespace PurwadhikaWebApplication
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(25550),
                 Provider = new SimpleAuthorizationServerProvider()
             };
 

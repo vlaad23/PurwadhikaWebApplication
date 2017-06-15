@@ -46,11 +46,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -85,11 +85,27 @@
       <HintPath>..\packages\Microsoft.Azure.AppService.ApiApps.Service.0.9.16\lib\net45\Microsoft.Azure.AppService.ApiApps.Service.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin.Cors, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Cors.2.1.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
       <Private>True</Private>
@@ -106,6 +122,18 @@
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.2\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.2.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.0.0\lib\net40\Swashbuckle.Core.dll</HintPath>
       <Private>True</Private>
@@ -119,6 +147,10 @@
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -201,9 +233,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -244,123 +273,125 @@
   <ItemGroup>
     <Compile Include="APIController\AccountController.cs" />
     <Compile Include="APIController\AnnouncementMastersController.cs" />
+    <Compile Include="APIController\ApplicantsController.cs" />
     <Compile Include="APIController\ApplicationUsersController.cs" />
+    <Compile Include="APIController\CategoryController.cs" />
     <Compile Include="APIController\JobMastersController.cs" />
     <Compile Include="APIController\MessageMastersController.cs" />
+    <Compile Include="APIController\TranscriptsModelsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FontAwesomeBundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BlobStorageServices.cs" />
+    <Compile Include="BlobUserService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AnnouncementController.cs" />
+    <Compile Include="Controllers\ApplicantsModelsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\UpdatePictController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609150559181_InitialCreate.cs" />
-    <Compile Include="Migrations\201609150559181_InitialCreate.Designer.cs">
-      <DependentUpon>201609150559181_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrated\201610281733415_ChangeByteIntoStringInJobMaster.cs" />
+    <Compile Include="Migrated\201610281733415_ChangeByteIntoStringInJobMaster.Designer.cs">
+      <DependentUpon>201610281733415_ChangeByteIntoStringInJobMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609150841250_Added properties in IdentityModels.cs" />
-    <Compile Include="Migrations\201609150841250_Added properties in IdentityModels.Designer.cs">
-      <DependentUpon>201609150841250_Added properties in IdentityModels.cs</DependentUpon>
+    <Compile Include="Migrated\201611132016215_Added EmployerViewModel.cs" />
+    <Compile Include="Migrated\201611132016215_Added EmployerViewModel.Designer.cs">
+      <DependentUpon>201611132016215_Added EmployerViewModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609160742272_set accountstatus default to true.cs" />
-    <Compile Include="Migrations\201609160742272_set accountstatus default to true.Designer.cs">
-      <DependentUpon>201609160742272_set accountstatus default to true.cs</DependentUpon>
+    <Compile Include="Migrated\201611190825143_yomama.cs" />
+    <Compile Include="Migrated\201611190825143_yomama.Designer.cs">
+      <DependentUpon>201611190825143_yomama.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609160811416_Added Id to MessageMaster.cs" />
-    <Compile Include="Migrations\201609160811416_Added Id to MessageMaster.Designer.cs">
-      <DependentUpon>201609160811416_Added Id to MessageMaster.cs</DependentUpon>
+    <Compile Include="Migrated\201611211729119_EditExpiredDateInMessageAndAnnouncement.cs" />
+    <Compile Include="Migrated\201611211729119_EditExpiredDateInMessageAndAnnouncement.Designer.cs">
+      <DependentUpon>201611211729119_EditExpiredDateInMessageAndAnnouncement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609171103352_Updatedb errorlogin.cs" />
-    <Compile Include="Migrations\201609171103352_Updatedb errorlogin.Designer.cs">
-      <DependentUpon>201609171103352_Updatedb errorlogin.cs</DependentUpon>
+    <Compile Include="Migrated\201612020918343_AddedTranscriptModel.cs" />
+    <Compile Include="Migrated\201612020918343_AddedTranscriptModel.Designer.cs">
+      <DependentUpon>201612020918343_AddedTranscriptModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609181225278_added MessageViewModel.cs" />
-    <Compile Include="Migrations\201609181225278_added MessageViewModel.Designer.cs">
-      <DependentUpon>201609181225278_added MessageViewModel.cs</DependentUpon>
+    <Compile Include="Migrated\201701200214082_add_category_table.cs" />
+    <Compile Include="Migrated\201701200214082_add_category_table.Designer.cs">
+      <DependentUpon>201701200214082_add_category_table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609190333110_Added datetime in messagemaster and messageviewmodel.cs" />
-    <Compile Include="Migrations\201609190333110_Added datetime in messagemaster and messageviewmodel.Designer.cs">
-      <DependentUpon>201609190333110_Added datetime in messagemaster and messageviewmodel.cs</DependentUpon>
+    <Compile Include="Migrated\201701200219083_AddRelationshipCategoryToJob.cs" />
+    <Compile Include="Migrated\201701200219083_AddRelationshipCategoryToJob.Designer.cs">
+      <DependentUpon>201701200219083_AddRelationshipCategoryToJob.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610020833264_Added AnnouncementMaster.cs" />
-    <Compile Include="Migrations\201610020833264_Added AnnouncementMaster.Designer.cs">
-      <DependentUpon>201610020833264_Added AnnouncementMaster.cs</DependentUpon>
+    <Compile Include="Migrated\201701201230512_hello730.cs" />
+    <Compile Include="Migrated\201701201230512_hello730.Designer.cs">
+      <DependentUpon>201701201230512_hello730.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610020847267_Fixing AnnouncementMaster.cs" />
-    <Compile Include="Migrations\201610020847267_Fixing AnnouncementMaster.Designer.cs">
-      <DependentUpon>201610020847267_Fixing AnnouncementMaster.cs</DependentUpon>
+    <Compile Include="Migrated\201701201232526_apusexpired.cs" />
+    <Compile Include="Migrated\201701201232526_apusexpired.Designer.cs">
+      <DependentUpon>201701201232526_apusexpired.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610021553138_added rolestarget in AnnouncementViewModel.cs" />
-    <Compile Include="Migrations\201610021553138_added rolestarget in AnnouncementViewModel.Designer.cs">
-      <DependentUpon>201610021553138_added rolestarget in AnnouncementViewModel.cs</DependentUpon>
+    <Compile Include="Migrated\201701201301132_removeICollectioninCategory.cs" />
+    <Compile Include="Migrated\201701201301132_removeICollectioninCategory.Designer.cs">
+      <DependentUpon>201701201301132_removeICollectioninCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610021555331_move rolestarget from AnnMV to AnnMaster.cs" />
-    <Compile Include="Migrations\201610021555331_move rolestarget from AnnMV to AnnMaster.Designer.cs">
-      <DependentUpon>201610021555331_move rolestarget from AnnMV to AnnMaster.cs</DependentUpon>
+    <Compile Include="Migrated\201701210632494_editJobMaster_RenameProperty_and_AddJobStatus.cs" />
+    <Compile Include="Migrated\201701210632494_editJobMaster_RenameProperty_and_AddJobStatus.Designer.cs">
+      <DependentUpon>201701210632494_editJobMaster_RenameProperty_and_AddJobStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610021615552_remove rolestarget from announcementmaster.cs" />
-    <Compile Include="Migrations\201610021615552_remove rolestarget from announcementmaster.Designer.cs">
-      <DependentUpon>201610021615552_remove rolestarget from announcementmaster.cs</DependentUpon>
+    <Compile Include="Migrated\201701210646460_changeApprovalStatusToEnum.cs" />
+    <Compile Include="Migrated\201701210646460_changeApprovalStatusToEnum.Designer.cs">
+      <DependentUpon>201701210646460_changeApprovalStatusToEnum.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610041814253_Added JobMaster and JobVM.cs" />
-    <Compile Include="Migrations\201610041814253_Added JobMaster and JobVM.Designer.cs">
-      <DependentUpon>201610041814253_Added JobMaster and JobVM.cs</DependentUpon>
+    <Compile Include="Migrated\201701230343565_localToDbmigration23jan17.cs" />
+    <Compile Include="Migrated\201701230343565_localToDbmigration23jan17.Designer.cs">
+      <DependentUpon>201701230343565_localToDbmigration23jan17.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610041821361_added createdby and datetime to job.cs" />
-    <Compile Include="Migrations\201610041821361_added createdby and datetime to job.Designer.cs">
-      <DependentUpon>201610041821361_added createdby and datetime to job.cs</DependentUpon>
+    <Compile Include="Migrated\201701230408238_editJobmaster.cs" />
+    <Compile Include="Migrated\201701230408238_editJobmaster.Designer.cs">
+      <DependentUpon>201701230408238_editJobmaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610041832516_error addmigration.cs" />
-    <Compile Include="Migrations\201610041832516_error addmigration.Designer.cs">
-      <DependentUpon>201610041832516_error addmigration.cs</DependentUpon>
+    <Compile Include="Migrated\201701230412322_editapprovalstatustonullable.cs" />
+    <Compile Include="Migrated\201701230412322_editapprovalstatustonullable.Designer.cs">
+      <DependentUpon>201701230412322_editapprovalstatustonullable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610041859229_fixing duplicate namespace jobviewmodel.cs" />
-    <Compile Include="Migrations\201610041859229_fixing duplicate namespace jobviewmodel.Designer.cs">
-      <DependentUpon>201610041859229_fixing duplicate namespace jobviewmodel.cs</DependentUpon>
+    <Compile Include="Migrated\201702241026371_addcategoryimagetable.cs" />
+    <Compile Include="Migrated\201702241026371_addcategoryimagetable.Designer.cs">
+      <DependentUpon>201702241026371_addcategoryimagetable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610050923257_added Id to MessageViewModel.cs" />
-    <Compile Include="Migrations\201610050923257_added Id to MessageViewModel.Designer.cs">
-      <DependentUpon>201610050923257_added Id to MessageViewModel.cs</DependentUpon>
+    <Compile Include="Migrated\201702270212062_migrate-empty.cs" />
+    <Compile Include="Migrated\201702270212062_migrate-empty.Designer.cs">
+      <DependentUpon>201702270212062_migrate-empty.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610051046222_WebApi.cs" />
-    <Compile Include="Migrations\201610051046222_WebApi.Designer.cs">
-      <DependentUpon>201610051046222_WebApi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610090712271_added firstname lastname in identitymodels and userviewmodel.cs" />
-    <Compile Include="Migrations\201610090712271_added firstname lastname in identitymodels and userviewmodel.Designer.cs">
-      <DependentUpon>201610090712271_added firstname lastname in identitymodels and userviewmodel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610110308099_Added currentaplicant in job.cs" />
-    <Compile Include="Migrations\201610110308099_Added currentaplicant in job.Designer.cs">
-      <DependentUpon>201610110308099_Added currentaplicant in job.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610131524401_Test_User_Login_API.cs" />
-    <Compile Include="Migrations\201610131524401_Test_User_Login_API.Designer.cs">
-      <DependentUpon>201610131524401_Test_User_Login_API.cs</DependentUpon>
+    <Compile Include="Migrations\201703080651088_Add_filter_table.cs" />
+    <Compile Include="Migrations\201703080651088_Add_filter_table.Designer.cs">
+      <DependentUpon>201703080651088_Add_filter_table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnnouncementMaster.cs" />
     <Compile Include="Models\AnnouncementViewModel.cs" />
+    <Compile Include="Models\ApplicantsModel.cs" />
+    <Compile Include="Models\CategoryMaster.cs" />
+    <Compile Include="Models\EmployerViewModel.cs" />
+    <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobMaster.cs" />
     <Compile Include="Models\JobViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MessageMaster.cs" />
     <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\TranscriptsModel.cs" />
     <Compile Include="Models\UserIndexViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AzureStorageMultipartFormDataStreamProvider.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Repo\AuthRepository.cs" />
     <Compile Include="Startup.cs" />
@@ -368,28 +399,90 @@
   <ItemGroup>
     <Content Include="CHANGELOGS\ChangeLog-Arga-v-1-0.txt" />
     <Content Include="CHANGELOGS\ChangeLog-Arga-v-1-1.txt" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fontawesome\font-awesome.css" />
+    <Content Include="Content\fontawesome\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
     <Content Include="apiapp.json" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <None Include="Properties\PublishProfiles\Haris.pubxml" />
     <None Include="Properties\PublishProfiles\PurwadhikaAppApi - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\PurwadhikaAppApi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -441,89 +534,97 @@
     <Content Include="Views\Message\SentBox.cshtml" />
     <Content Include="Views\Announcement\Index.cshtml" />
     <Content Include="Views\Announcement\Create.cshtml" />
-    <Content Include="Views\Job\Create.cshtml" />
-    <Content Include="Views\Job\Index.cshtml" />
     <Content Include="Views\Admin\CurrateJob.cshtml" />
     <Content Include="Views\Account\RegisterStudent.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Job\UploadAzure.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Views\Shared\AdminSideMenu.cshtml" />
+    <Content Include="Views\Admin\AdminInbox.cshtml" />
+    <Content Include="Views\ApplicantsModels\Create.cshtml" />
+    <Content Include="Views\ApplicantsModels\Delete.cshtml" />
+    <Content Include="Views\ApplicantsModels\Details.cshtml" />
+    <Content Include="Views\ApplicantsModels\Edit.cshtml" />
+    <Content Include="Views\ApplicantsModels\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Shared\MessageLayout.cshtml" />
+    <Content Include="Views\Shared\MessageSideMenu.cshtml" />
+    <Content Include="Views\Job\IndexMaster.cshtml" />
+    <Content Include="Views\Shared\JobLayout.cshtml" />
+    <Content Include="Views\Shared\JobSideMenu.cshtml" />
+    <Content Include="Views\Account\RegisterEmployer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
+    <Folder Include="Views\UpdatePict\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609150559181_InitialCreate.resx">
-      <DependentUpon>201609150559181_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201610281733415_ChangeByteIntoStringInJobMaster.resx">
+      <DependentUpon>201610281733415_ChangeByteIntoStringInJobMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609150841250_Added properties in IdentityModels.resx">
-      <DependentUpon>201609150841250_Added properties in IdentityModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201611132016215_Added EmployerViewModel.resx">
+      <DependentUpon>201611132016215_Added EmployerViewModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609160742272_set accountstatus default to true.resx">
-      <DependentUpon>201609160742272_set accountstatus default to true.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201611190825143_yomama.resx">
+      <DependentUpon>201611190825143_yomama.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609160811416_Added Id to MessageMaster.resx">
-      <DependentUpon>201609160811416_Added Id to MessageMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201611211729119_EditExpiredDateInMessageAndAnnouncement.resx">
+      <DependentUpon>201611211729119_EditExpiredDateInMessageAndAnnouncement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609171103352_Updatedb errorlogin.resx">
-      <DependentUpon>201609171103352_Updatedb errorlogin.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201612020918343_AddedTranscriptModel.resx">
+      <DependentUpon>201612020918343_AddedTranscriptModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609181225278_added MessageViewModel.resx">
-      <DependentUpon>201609181225278_added MessageViewModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701200214082_add_category_table.resx">
+      <DependentUpon>201701200214082_add_category_table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609190333110_Added datetime in messagemaster and messageviewmodel.resx">
-      <DependentUpon>201609190333110_Added datetime in messagemaster and messageviewmodel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701200219083_AddRelationshipCategoryToJob.resx">
+      <DependentUpon>201701200219083_AddRelationshipCategoryToJob.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610020833264_Added AnnouncementMaster.resx">
-      <DependentUpon>201610020833264_Added AnnouncementMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701201230512_hello730.resx">
+      <DependentUpon>201701201230512_hello730.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610020847267_Fixing AnnouncementMaster.resx">
-      <DependentUpon>201610020847267_Fixing AnnouncementMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701201232526_apusexpired.resx">
+      <DependentUpon>201701201232526_apusexpired.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610021553138_added rolestarget in AnnouncementViewModel.resx">
-      <DependentUpon>201610021553138_added rolestarget in AnnouncementViewModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701201301132_removeICollectioninCategory.resx">
+      <DependentUpon>201701201301132_removeICollectioninCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610021555331_move rolestarget from AnnMV to AnnMaster.resx">
-      <DependentUpon>201610021555331_move rolestarget from AnnMV to AnnMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701210632494_editJobMaster_RenameProperty_and_AddJobStatus.resx">
+      <DependentUpon>201701210632494_editJobMaster_RenameProperty_and_AddJobStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610021615552_remove rolestarget from announcementmaster.resx">
-      <DependentUpon>201610021615552_remove rolestarget from announcementmaster.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701210646460_changeApprovalStatusToEnum.resx">
+      <DependentUpon>201701210646460_changeApprovalStatusToEnum.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610041814253_Added JobMaster and JobVM.resx">
-      <DependentUpon>201610041814253_Added JobMaster and JobVM.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701230343565_localToDbmigration23jan17.resx">
+      <DependentUpon>201701230343565_localToDbmigration23jan17.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610041821361_added createdby and datetime to job.resx">
-      <DependentUpon>201610041821361_added createdby and datetime to job.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701230408238_editJobmaster.resx">
+      <DependentUpon>201701230408238_editJobmaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610041832516_error addmigration.resx">
-      <DependentUpon>201610041832516_error addmigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201701230412322_editapprovalstatustonullable.resx">
+      <DependentUpon>201701230412322_editapprovalstatustonullable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610041859229_fixing duplicate namespace jobviewmodel.resx">
-      <DependentUpon>201610041859229_fixing duplicate namespace jobviewmodel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201702241026371_addcategoryimagetable.resx">
+      <DependentUpon>201702241026371_addcategoryimagetable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610050923257_added Id to MessageViewModel.resx">
-      <DependentUpon>201610050923257_added Id to MessageViewModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrated\201702270212062_migrate-empty.resx">
+      <DependentUpon>201702270212062_migrate-empty.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610051046222_WebApi.resx">
-      <DependentUpon>201610051046222_WebApi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610090712271_added firstname lastname in identitymodels and userviewmodel.resx">
-      <DependentUpon>201610090712271_added firstname lastname in identitymodels and userviewmodel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610110308099_Added currentaplicant in job.resx">
-      <DependentUpon>201610110308099_Added currentaplicant in job.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610131524401_Test_User_Login_API.resx">
-      <DependentUpon>201610131524401_Test_User_Login_API.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703080651088_Add_filter_table.resx">
+      <DependentUpon>201703080651088_Add_filter_table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -20,7 +20,7 @@ namespace PurwadhikaWebApplication.Repo
             _ctx = new ApplicationDbContext();
             _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_ctx));
         }
-        //Register ini gak kepake, cuma buat test sama contoh aja
+        //Register ini gak kepake, just in case aja
         public async Task<IdentityResult> RegisterUser(RegisterViewModel userModel)
         {
             ApplicationUser user = new ApplicationUser
@@ -48,21 +48,31 @@ namespace PurwadhikaWebApplication.Repo
             ApplicationUser user = await _userManager.FindAsync(userName, password);
             return user;
         }
-
-        public async Task<IdentityResult> EditMe(EditViewModel myModel, ApplicationUser me)
+        public async Task<ApplicationUser> FindUser(string userName)
+        {
+            ApplicationUser user = await _userManager.FindByEmailAsync(userName);
+            return user;
+        }
+        public string HashPassword(string newPassword)
+        {
+            return _userManager.PasswordHasher.HashPassword(newPassword);
+        }
+        public async Task<IdentityResult> EditMe(ApplicationUser user)
         {
             //var editProfile = new ApplicationUser();
+            
+            //me = new ApplicationUser();
+            //var me = await _userManager.FindByEmailAsync(email);
+            //me.About = myModel.About;
+            //me.AccountPicture = myModel.uri;
+            //me.Address = myModel.Address;
+            //me.Experience = myModel.Experience;
+            //me.Skills = myModel.Skills;
+            ////  me.PasswordHash = myModel.Password;
+            //var newPassword = _userManager.PasswordHasher.HashPassword(myModel.Password);
+            //me.PasswordHash = newPassword;
 
-            me.About = myModel.About;
-            me.AccountPicture = myModel.uri;
-            me.Address = myModel.Address;
-            me.Experience = myModel.Experience;
-            me.Skills = myModel.Skills;
-            //  me.PasswordHash = myModel.Password;
-            var newPassword = _userManager.PasswordHasher.HashPassword(myModel.Password);
-            me.PasswordHash = newPassword;
-
-            var updated = await _userManager.UpdateAsync(me);
+            var updated = await _userManager.UpdateAsync(user);
            
             return updated;
             
@@ -75,7 +85,28 @@ namespace PurwadhikaWebApplication.Repo
         public async Task<ApplicationUser> FindMe(string email)
         {
             var me = await _userManager.FindByEmailAsync(email);
-            return me;
+
+            var myModel = new ApplicationUser
+            {
+                Id = me.Id,
+                Firstname = me.Firstname,
+                Lastname = me.Lastname,
+                Gender = me.Gender,
+                Address = me.Address,
+                Batch = me.Batch,
+                AccountPicture = me.AccountPicture,
+                AccountTranscript = me.AccountTranscript,
+                About = me.About,
+                Skills = me.Skills,
+                Experience = me.Experience,
+                Email = me.Email,
+                PhoneNumber = me.PhoneNumber,
+                InstanceName = me.InstanceName,
+                UserName = me.UserName
+
+            };
+
+            return myModel;
         }
         public void Dispose()
         {

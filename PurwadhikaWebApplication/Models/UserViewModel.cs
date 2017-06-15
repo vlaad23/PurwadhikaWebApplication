@@ -16,6 +16,7 @@ namespace PurwadhikaWebApplication.Models
         public string About { get; set; }
         public string Skills { get; set; }
         public string Experience { get; set; }
+        //public string Fullname { get { return Firstname + ' ' + Lastname; } }
 
     }
 }

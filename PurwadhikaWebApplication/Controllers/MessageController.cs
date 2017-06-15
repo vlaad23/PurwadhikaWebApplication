@@ -40,7 +40,6 @@ namespace PurwadhikaWebApplication.Controllers
         public ActionResult Inbox()
         {
             
-            var db = new ApplicationDbContext();
             string currentUserName = User.Identity.GetUserName();
            
             var messageList = db.MessageMasters.ToList()
@@ -69,6 +68,61 @@ namespace PurwadhikaWebApplication.Controllers
                 .Select(y => y.UserName).ToList();
 
             return Json(users, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Index()
+        {
+            MessageMaster msg = new MessageMaster();
+
+            var today = DateTime.Now;
+            if ( today == msg.ExpiredIn)
+            {
+                DeleteMessageMaster(msg);
+            }         
+
+            return View();
+        }
+        public ActionResult SetExpiryDate(MessageMaster DaysToExpire)
+        {
+            
+            return new JavaScriptResult { Script = "alert('Expiry Date Set!')"};
+        }
+        public PartialViewResult ComposeContent()
+        {
+            MessageMaster x = new MessageMaster();
+            x.From = User.Identity.Name;
+            
+            return PartialView("~/Views/Message/Compose.cshtml", x);
+        }
+
+        public PartialViewResult InboxContent()
+        {
+            string currentUserName = User.Identity.GetUserName();
+
+            var messageList = db.MessageMasters.ToList()
+                .Select(e => new MessageViewModel { From = e.From, To = e.To, Subject = e.Subject, Message = e.Message, DateTime = e.DateTime })
+                .Where(e => e.To == currentUserName);
+ 
+            return PartialView("~/Views/Message/Inbox.cshtml", messageList);
+
+        }
+
+        public PartialViewResult SentboxContent()
+        {
+            string currentUserName = User.Identity.GetUserName();
+
+            var SentList = db.MessageMasters.ToList()
+                .Select(e => new MessageViewModel { From = e.From, To = e.To, Subject = e.Subject, Message = e.Message, DateTime = e.DateTime })
+                .Where(e => e.From == currentUserName);
+
+            return PartialView("/Views/Message/SentBox.cshtml", SentList);
+
+        }
+
+        public ActionResult DeleteMessageMaster(MessageMaster msg)
+        {
+            db.MessageMasters.Remove(msg);
+            return View();
         }
 
 

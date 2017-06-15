@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PurwadhikaWebApplication.Models.UserIndexViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@{Html.RenderPartial("UserIndex",Model); }
+@section scripts{
+    <script>
+    $(document).ready(
+            function () {
+                $('#btn1').click(function () {
+                    $.get('@Url.Action("UserIndexContent", "Admin")', function (data) {
+                        $('#partialArea').html(data);
+                    });
+                });
+                $('#btn2').click(function () {
+                    $.get('@Url.Action("CurateJobContent", "Admin")', function (data) {
+                        $('#partialArea').html(data);
+                    });
+                });
+                $('#btn3').click(function () {
+                    $.get('@Url.Action("Index", "Message")', function (data) {
+                        $('#partialArea').html(data);
+                    });
+                });
+            });
+    </script>
+}
+

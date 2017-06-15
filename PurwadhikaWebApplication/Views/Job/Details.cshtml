@@ -1,0 +1,113 @@
+﻿@model PurwadhikaWebApplication.Models.JobMaster
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobName)
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.JobName)
+        </dd>
+
+                </br>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Image)*@
+            
+        </dt>
+
+        <dd>
+            <img src="@Model.Image"/>
+            @*@Html.DisplayFor(model => model.Image)*@
+        </dd>
+
+                </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailablePosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailablePosition)
+        </dd>
+
+                </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+                </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+                </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+                </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentApplicant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentApplicant)
+        </dd>
+                </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobStatus)
+        </dd>
+            </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovalStatus)
+        </dd>
+        </br>
+        <dt>
+            @Html.DisplayFor(model => model.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+                </br>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiredDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

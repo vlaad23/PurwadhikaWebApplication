@@ -13,5 +13,10 @@ namespace PurwadhikaWebApplication.Models
         public string Subject { get; set; }
         public string Message { get; set; }
         public DateTime DateTime { get; set; } = DateTime.Now;
+        public int DeleteIn { get; set; }
+        public DateTime ExpiredIn { get; set; } = DateTime.Now.AddDays(30);
+
     }
+
+    
 }

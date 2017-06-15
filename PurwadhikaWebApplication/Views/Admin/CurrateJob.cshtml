@@ -1,13 +1,13 @@
-﻿@model IEnumerable<PurwadhikaWebApplication.Models.JobViewModel>
+﻿@model IEnumerable<PurwadhikaWebApplication.Models.JobMaster>
 
 @{
     ViewBag.Title = "CurrateJob";
 }
 
-<h2>CurrateJob</h2>
+<h3>Outstanding Jobs</h3>
 
 
-<table class="table">
+<table class="table table-striped table-hover table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.JobName)
@@ -22,8 +22,15 @@
             @Html.DisplayNameFor(model => model.CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
+            @Html.DisplayNameFor(model => model.DateTime)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpiredDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+      
         <th></th>
     </tr>
 
@@ -43,12 +50,18 @@
             @Html.DisplayFor(modelItem => item.CreatedBy)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
+            @Html.DisplayFor(modelItem => item.DateTime)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.ExpiredDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", "Job", new { id=item.Id }, null) |
+            @Html.ActionLink("Approve", "Approve", new { id = item.Id }) |
+            @Html.ActionLink("Reject", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

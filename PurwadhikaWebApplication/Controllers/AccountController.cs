@@ -10,9 +10,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PurwadhikaWebApplication.Models;
 using PurwadhikaWebApplication.Repo;
+using System.Web.Security;
 
 namespace PurwadhikaWebApplication.Controllers
 {
+    
     [Authorize]
     public class AccountController : Controller
     {
@@ -29,6 +31,7 @@ namespace PurwadhikaWebApplication.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+
         }
 
         public ApplicationSignInManager SignInManager
@@ -82,14 +85,28 @@ namespace PurwadhikaWebApplication.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    var user = await UserManager.FindAsync(model.Email, model.Password);
+                    var roles = await UserManager.GetRolesAsync(user.Id);
+                    if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else if (roles.Contains("Employer"))
+                    {
+                        return RedirectToAction("IndexMaster", "Job");
+                    }
+                    else
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+                   
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Wrong Email or Password");
                     return View(model);
             }
         }
@@ -162,21 +179,23 @@ namespace PurwadhikaWebApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Firstname = model.Firstname, Lastname = model.Lastname, Gender = model.Gender, Address = model.Address, Batch = model.Batch, AccountTranscript = model.AccountPicture, InstanceName = model.InstanceName, Industry = model.Industry, About = model.About, Skills = model.Skills};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Firstname = model.Firstname, Lastname = model.Lastname, Gender = model.Gender, Address = model.Address, Batch = model.Batch, InstanceName = model.InstanceName, Industry = model.Industry, About = model.About, Skills = model.Skills};
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     //Assign role to user
                     var resultRole=UserManager.AddToRole(user.Id, model.Role);
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    //** code dibawah gue commend untuk remove auto login after register
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    TempData["Msg"] = "Data has been registered succeessfully";
+                    return RedirectToAction("Register", "Account");
                 }
                 AddErrors(result);
             }
@@ -185,9 +204,52 @@ namespace PurwadhikaWebApplication.Controllers
             return View(model);
         }
 
+        //check email
+        [AllowAnonymous]
+        public async Task<JsonResult> UserAlreadyExistsAsync(string email)
+        {
+            var result =
+                await UserManager.FindByNameAsync(email) ??
+                await UserManager.FindByEmailAsync(email);
+            return Json(result == null, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult RegisterStudent()
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult RegisterEmployer()
+        {
+            var model = new EmployerViewModel();
+            model.Role = "Employer";
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterEmployer(EmployerViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Address = model.Address, InstanceName = model.InstanceName, Industry = model.Industry};
+
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                   
+                    var resultRole = UserManager.AddToRole(user.Id, model.Role);
+                   
+                    TempData["Msg"] = "Data has been registered succeessfully";
+                    return RedirectToAction("RegisterEmployer", "Account");
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
 
         //
@@ -410,7 +472,7 @@ namespace PurwadhikaWebApplication.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
@@ -467,7 +529,7 @@ namespace PurwadhikaWebApplication.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Admin");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

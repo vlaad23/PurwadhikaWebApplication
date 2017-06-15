@@ -1,0 +1,33 @@
+﻿@model PurwadhikaWebApplication.Models.JobMaster
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/JobLayout.cshtml";
+}
+
+@*@{Html.RenderPartial("Index", Model); }*@
+@{ Html.RenderAction("Index", "Job");}
+@section scripts{
+    <script>
+    $(document).ready(
+            function () {
+                $('#btnIndex').click(function () {
+                    $.get('@Url.Action("JobIndexContent", "Job")', function (data) {
+                        $('#partialArea').html(data);
+                    });
+                });
+                $('#btnMessage').click(function () {
+                    $.get('@Url.Action("MessageIndexContent", "Job")', function (data) {
+                        $('#partialArea').html(data);
+                    });
+                });
+                $('#btnApplicant').click(function () {
+                    $.get('@Url.Action("ApplicantContent", "Job")', function (data) {
+                        $('#partialArea').html(data);
+                    });
+                });
+            });
+    </script>
+}
+
+
+
